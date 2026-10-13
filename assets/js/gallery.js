@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = targetItem.getAttribute('data-title') || 'Photograph by Rajan Maharjan';
     const location = targetItem.getAttribute('data-location') || 'Nepal';
     const camera = targetItem.getAttribute('data-camera') || 'Mobile Photography';
-    const link500px = targetItem.getAttribute('data-500px') || 'https://500px.com/p/rajanmaharjan';
+    const link500px = targetItem.getAttribute('data-500px') || 'https://500px.com/p/rajan_maharjan';
 
     lightboxImg.src = fullSrc;
     lightboxImg.alt = title;

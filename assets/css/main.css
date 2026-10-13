@@ -813,13 +813,13 @@ button, input, select, textarea {
 }
 
 .floating-badge.badge-top {
-  top: 15px;
-  right: -15px;
+  top: 25px;
+  left: -25px;
 }
 
 .floating-badge.badge-bottom {
-  bottom: 25px;
-  left: -20px;
+  bottom: 25px;  
+  right: -25px;
 }
 
 @media (max-width: 640px) {

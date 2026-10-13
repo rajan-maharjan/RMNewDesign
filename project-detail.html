@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study: RM Toastmasters Agenda Builder — Rajan Maharjan</title>
-  <meta name="description" content="In-depth technical case study of the RM Toastmasters Agenda Builder: dynamic meeting duration calculation, automated ballot sheets, and PDF export for Toastmasters clubs.">
+  <title>Case Study: Toastmasters Agenda Builder — Rajan Maharjan</title>
+  <meta name="description" content="In-depth technical case study of the Toastmasters Agenda Builder: dynamic meeting duration calculation, automated ballot sheets, and PDF export for Toastmasters clubs.">
   <meta name="keywords" content="Toastmasters Agenda Builder, Case Study, Rajan Maharjan, Area C1, Toastmasters Nepal, Meeting Agenda PDF, PHP Automation">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://rajanmaharjan.com.np/project-detail.html">
-  <meta property="og:title" content="Case Study: RM Toastmasters Agenda Builder — Rajan Maharjan">
+  <meta property="og:title" content="Case Study: Toastmasters Agenda Builder — Rajan Maharjan">
   <meta property="og:description" content="Dynamic meeting duration calculation, role allocations, and automated PDF export.">
-  <meta property="og:image" content="assets/images/works/ugc.jpg">
+  <meta property="og:image" content="assets/images/works/agenda-builder.jpg">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
@@ -109,7 +109,7 @@
         </div>
 
         <h1 style="font-size:clamp(2.2rem, 4.5vw, 3.4rem);margin-bottom:1.25rem;line-height:1.2;">
-          RM Toastmasters Agenda Builder
+          Toastmasters Agenda Builder
         </h1>
 
         <p style="font-size:1.25rem;color:var(--text-secondary);line-height:1.7;margin-bottom:2.5rem;">
@@ -119,16 +119,12 @@
         <!-- Project Meta Bar -->
         <div class="card" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:1.5rem;padding:1.5rem;margin-bottom:3rem;">
           <div>
-            <span style="font-size:0.75rem;text-transform:uppercase;color:var(--text-muted);font-weight:700;">Role</span>
-            <div style="font-weight:600;color:var(--text-main);margin-top:0.25rem;">Lead Architect & Developer</div>
-          </div>
-          <div>
             <span style="font-size:0.75rem;text-transform:uppercase;color:var(--text-muted);font-weight:700;">Tech Stack</span>
             <div style="font-weight:600;color:var(--text-main);margin-top:0.25rem;">PHP 8, Vanilla JS, CSS3, PDF</div>
           </div>
           <div>
             <span style="font-size:0.75rem;text-transform:uppercase;color:var(--text-muted);font-weight:700;">Target Users</span>
-            <div style="font-weight:600;color:var(--text-main);margin-top:0.25rem;">Toastmasters Club Officers & Area C1</div>
+            <div style="font-weight:600;color:var(--text-main);margin-top:0.25rem;">All Toastmasters</div>
           </div>
           <div>
             <span style="font-size:0.75rem;text-transform:uppercase;color:var(--text-muted);font-weight:700;">Live Tool</span>
@@ -144,23 +140,24 @@
         <section style="margin-bottom:3rem;">
           <h2 style="font-size:1.8rem;margin-bottom:1rem;">1. Background & The Challenge</h2>
           <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.25rem;">
-            A standard Toastmasters meeting is a tightly choreographed, 90-minute educational session consisting of multiple segments: business meetings, prepared speeches, Table Topics (impromptu speaking), and speech evaluations. Each segment is timed down to the minute by designated role players (Timer, Ah-Counter, Grammarian, General Evaluator).
+            A standard Toastmasters meeting is a tightly choreographed, 90-minute educational session consisting of multiple segments: prepared speeches, Table Topics (impromptu speaking), and speech evaluations. Each segment is timed down to the minute by designated role players (Timer, Ah-Counter, Grammarian, General Evaluator).
           </p>
           <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);">
-            Historically, Vice Presidents of Education (VPEs) and Toastmasters of the Day (TMODs) struggled with manual spreadsheets. If a speaker withdrew or an agenda item changed duration by even 3 minutes, every subsequent item on the agenda had to be manually re-computed. Furthermore, creating accompanying voting ballot slips was a separate, tedious document formatting chore.
+            Historically, Vice Presidents of Education (VPEs) and Toastmasters of the Day (TMODs) struggled with manual spreadsheets. If a speaker withdrew or an agenda item changed even by few minutes, every subsequent item on the agenda had to be manually re-computed. Furthermore, creating accompanying voting ballot slips was a separate, tedious document formatting chore.
           </p>
         </section>
 
         <!-- The Solution -->
         <section style="margin-bottom:3rem;">
-          <h2 style="font-size:1.8rem;margin-bottom:1rem;">2. The Engineering Solution</h2>
+          <h2 style="font-size:1.8rem;margin-bottom:1rem;">2. The Concept Solution</h2>
           <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.25rem;">
-            I engineered the <strong>RM Toastmasters Agenda Builder</strong> as an intuitive, high-performance web application hosted directly on my personal domain (<code>rajanmaharjan.com.np/agenda-builder/</code>).
+            I concept the <strong>Toastmasters Agenda Builder</strong> as an intuitive, high-performance web application hosted directly on my personal domain (<code>rajanmaharjan.com.np/agenda-builder/</code>).
           </p>
           <div class="card" style="padding:2rem;margin-bottom:1.5rem;background:var(--bg-surface-subtle);">
             <h3 style="font-size:1.25rem;margin-bottom:0.75rem;">Key Capabilities Implemented:</h3>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--text-secondary);">
               <li><strong>Dynamic Time Cascading:</strong> Changing any slot duration automatically recalculates downstream start and end times in real-time on the client side without server roundtrips.</li>
+              <li><strong>Easy Section Add/Remove:</strong>Easy to add/remove the various segments like Prepared Speeches, Table Topic, Evaluators </li>
               <li><strong>Interactive Role Allocation:</strong> Quick entry for Club Officers, TMOD, Table Topics Master, General Evaluator, and individual speech evaluators.</li>
               <li><strong>Automated Ballot Sheet Generator:</strong> Automatically structures voting slips for Better Role Taker (Timer, Ah-Counter, Grammarian), Better Evaluator, Better Featured Speaker, and Better Table Topic Speaker.</li>
               <li><strong>Print-Optimized & PDF Engine:</strong> Renders a clean 2-page landscape or portrait agenda sheet ready for printing or digital distribution via WhatsApp and email.</li>
@@ -172,7 +169,7 @@
         <section style="margin-bottom:3.5rem;">
           <h2 style="font-size:1.8rem;margin-bottom:1rem;">3. Impact & Community Value</h2>
           <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.25rem;">
-            The tool has saved club executives hours of administrative friction every week. By centralizing meeting agenda generation into an accessible web form, clubs in Area C1 and broader Toastmasters Nepal clubs now produce consistent, professional agendas that start and conclude on time.
+            The tool has saved club executives hours of administrative friction every week. By centralizing meeting agenda generation into an accessible web form, clubs in Toastmasters community now produce consistent, professional agendas that start and conclude on time.
           </p>
           <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
             <a href="https://rajanmaharjan.com.np/agenda-builder/index.php" target="_blank" rel="noopener" class="btn btn-primary">
