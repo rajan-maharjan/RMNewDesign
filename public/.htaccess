@@ -1,0 +1,8 @@
+Options -Indexes
+RewriteEngine On
+
+# Keep generated files and real directories, then route legacy page URLs to React.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^ index.html [L]

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Knowledge Sharing — Rajan Maharjan</title>
+  <meta name="description" content="Technical tutorials, digital banking insights, Toastmasters guides, and personal reflections by Rajan Maharjan. Knowledge: Sharing is Learning.">
+  <meta name="keywords" content="Rajan Maharjan Blog, PHP Oracle Excel, Toastmasters Clubs Nepal, AI Video Generation, NEPSE Stock Brokers, Technical Tutorials Nepal">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rajanmaharjan.com.np/blog.html">
+  <meta property="og:title" content="Blog & Knowledge Sharing — Rajan Maharjan">
+  <meta property="og:description" content="Technical tutorials, digital banking insights, and personal reflections.">
+  <meta property="og:image" content="assets/images/profile.jpg">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="site-brand">
+        <img src="assets/images/profile.jpg" alt="Rajan Maharjan" class="brand-avatar" onerror="this.src='assets/images/rajan-pp.jpg'">
+        <div class="brand-details">
+          <span class="brand-name">Rajan Maharjan</span>
+          <span class="brand-tagline">Digital Banking & Technology</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="expertise.html" class="nav-link">Expertise</a>
+        <a href="projects.html" class="nav-link">Portfolio</a>
+        <a href="photography.html" class="nav-link">Photography</a>
+        <a href="videos.html" class="nav-link">Videos</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="tools.html" class="nav-link">Tools</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <a href="date-converter.html" class="date-pill-widget" title="Live Nepali & English Date">
+          <span class="date-dot"></span>
+          <span id="liveDateTicker">Today • Nepali BS Calendar</span>
+        </a>
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="site-brand">
+        <img src="assets/images/profile.jpg" alt="Rajan Maharjan" class="brand-avatar" style="width:36px;height:36px;">
+        <span class="brand-name" style="font-size:1rem;">Rajan Maharjan</span>
+      </div>
+      <button type="button" class="mobile-drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li class="mobile-nav-item"><a href="index.html">Home</a></li>
+      <li class="mobile-nav-item"><a href="about.html">About Me</a></li>
+      <li class="mobile-nav-item"><a href="expertise.html">Expertise & Skills</a></li>
+      <li class="mobile-nav-item"><a href="projects.html">Portfolio & Works</a></li>
+      <li class="mobile-nav-item"><a href="photography.html">Photography (500px)</a></li>
+      <li class="mobile-nav-item"><a href="videos.html">YouTube Videos</a></li>
+      <li class="mobile-nav-item"><a href="blog.html" class="active">Blog & Insights</a></li>
+      <li class="mobile-nav-item"><a href="tools.html">Tools & Utilities</a></li>
+      <li class="mobile-nav-item"><a href="contact.html">Contact</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <!-- Page Hero Banner -->
+    <section class="section" style="padding-top:4.5rem;padding-bottom:3rem;background:radial-gradient(circle at 50% 0%, var(--color-primary-light) 0%, transparent 70%);">
+      <div class="container" style="max-width:960px;text-align:center;">
+        <span class="section-pill">Knowledge Sharing</span>
+        <h1 style="font-size:clamp(2.4rem, 5vw, 3.8rem);margin-bottom:1.25rem;">
+          Articles, Insights & Solutions
+        </h1>
+        <p style="font-size:1.2rem;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem;">
+          <em>"Knowledge: Sharing is Learning."</em> A curated archive of hands-on database tutorials, software techniques, Toastmasters resources, and personal essays.
+        </p>
+
+        <!-- Search Input -->
+        <div style="max-width:480px;margin:0 auto;position:relative;">
+          <input type="text" id="blogSearchInput" class="form-control" placeholder="Search articles by title or keyword..." style="padding-left:2.8rem;border-radius:var(--radius-full);box-shadow:var(--shadow-sm);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:1.15rem;top:50%;transform:translateY(-50%);color:var(--text-muted);">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Post Hero -->
+    <section class="section" style="padding-top:1rem;padding-bottom:3rem;">
+      <div class="container">
+        <div class="card card-glass" style="padding:2.5rem;max-width:1100px;margin:0 auto;border:1px solid var(--border-strong);">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;flex-wrap:wrap;">
+            <span class="project-badge-featured" style="position:static;">Featured Guide</span>
+            <span style="font-size:0.85rem;color:var(--color-primary);font-weight:700;">PHP & ORACLE DATABASE</span>
+            <span style="font-size:0.85rem;color:var(--text-muted);">•</span>
+            <span style="font-size:0.85rem;color:var(--text-muted);">5 min read</span>
+          </div>
+          <h2 style="font-size:clamp(1.6rem, 3vw, 2.25rem);margin-bottom:1rem;line-height:1.3;">
+            <a href="article.html" style="color:var(--text-main);">How to Import the Data of an Excel File into an Oracle Table Using PHP</a>
+          </h2>
+          <p style="font-size:1.05rem;line-height:1.75;color:var(--text-secondary);margin-bottom:1.5rem;">
+            A production-ready technical tutorial explaining how to parse multi-row Excel spreadsheets in PHP and safely stream batch inserts into enterprise Oracle tables without running out of memory.
+          </p>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--border-subtle);padding-top:1.25rem;">
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <img src="assets/images/profile.jpg" alt="Rajan Maharjan" style="width:34px;height:34px;border-radius:50%;object-fit:cover;" onerror="this.src='assets/images/rajan-pp.jpg'">
+              <span style="font-size:0.9rem;font-weight:600;color:var(--text-main);">Rajan Maharjan</span>
+            </div>
+            <a href="article.html" class="btn btn-primary btn-sm">
+              Read Complete Guide
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Articles Grid & Category Filtering -->
+    <section class="section" style="padding-top:1rem;background:var(--bg-surface-subtle);">
+      <div class="container container-wide">
+        <!-- Category Filter Tabs -->
+        <div class="filter-tabs" id="blogFilterTabs">
+          <button type="button" class="filter-tab active" data-filter="*">All Articles</button>
+          <button type="button" class="filter-tab" data-filter=".cat-tech">Database & PHP</button>
+          <button type="button" class="filter-tab" data-filter=".cat-ai">AI & Innovation</button>
+          <button type="button" class="filter-tab" data-filter=".cat-toastmasters">Toastmasters & Leadership</button>
+          <button type="button" class="filter-tab" data-filter=".cat-market">Finance & Markets</button>
+          <button type="button" class="filter-tab" data-filter=".cat-personal">Literary & Personal</button>
+        </div>
+
+        <div class="blog-grid" id="blogGrid">
+          <!-- Article 1: Excel into Oracle -->
+          <article class="article-card cat-tech" data-title="How to import the data of an Excel file into Oracle table using PHP">
+            <div class="article-meta">
+              <span class="article-category">PHP & Oracle</span>
+              <span>•</span>
+              <time datetime="2023-10-29">Oct 29, 2023</time>
+              <span>•</span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="article-title"><a href="article.html">How to Import Excel Data into Oracle Table Using PHP</a></h3>
+            <p class="article-excerpt">
+              Step-by-step code tutorial with PHPExcel and Oracle OCI8 libraries, handling batch directory loops and relational inserts.
+            </p>
+            <div class="article-footer">
+              <a href="article.html" class="read-more-link">Read Article →</a>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Technical</span>
+            </div>
+          </article>
+
+          <!-- Article 2: Creating AI Video and Story -->
+          <article class="article-card cat-ai" data-title="Creating AI video and story modern generative tools">
+            <div class="article-meta">
+              <span class="article-category">Artificial Intelligence</span>
+              <span>•</span>
+              <time datetime="2024-03-22">Mar 22, 2024</time>
+              <span>•</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="article-title"><a href="article.html?post=ai-video">Creating AI Video and Story: Modern Generative Tools</a></h3>
+            <p class="article-excerpt">
+              Prompting ChatGPT and Gemini for story outlines, generating visual assets on Leonardo.ai, and animating frames via LeiaPix.
+            </p>
+            <div class="article-footer">
+              <a href="article.html?post=ai-video" class="read-more-link">Read Article →</a>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Generative AI</span>
+            </div>
+          </article>
+
+          <!-- Article 3: Toastmasters Clubs in Nepal -->
+          <article class="article-card cat-toastmasters" data-title="Toastmasters Clubs in Nepal Complete Meeting Directory">
+            <div class="article-meta">
+              <span class="article-category">Toastmasters</span>
+              <span>•</span>
+              <time datetime="2024-03-22">Mar 22, 2024</time>
+              <span>•</span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="article-title"><a href="article.html?post=toastmasters-clubs">Toastmasters Clubs in Nepal: Directory & Meeting Timings</a></h3>
+            <p class="article-excerpt">
+              Comprehensive reference covering club names, areas (A1, C1, etc.), physical venues, and weekly meeting times across Nepal.
+            </p>
+            <div class="article-footer">
+              <a href="article.html?post=toastmasters-clubs" class="read-more-link">Read Article →</a>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Directory</span>
+            </div>
+          </article>
+
+          <!-- Article 4: NEPSE Stock Brokers Directory -->
+          <article class="article-card cat-market" data-title="List of Stock Brokers Listed in NEPSE Nepal Stock Market">
+            <div class="article-meta">
+              <span class="article-category">Finance & NEPSE</span>
+              <span>•</span>
+              <time datetime="2024-02-29">Feb 29, 2024</time>
+              <span>•</span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="article-title"><a href="article.html?post=nepse-brokers">List of Stock Brokers Listed in NEPSE</a></h3>
+            <p class="article-excerpt">
+              Directory of licensed broker firms on the Nepal Stock Exchange (NEPSE), addresses, contact information, and trading tools.
+            </p>
+            <div class="article-footer">
+              <a href="article.html?post=nepse-brokers" class="read-more-link">Read Article →</a>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Stock Market</span>
+            </div>
+          </article>
+
+          <!-- Article 5: Ways to Increase Focus -->
+          <article class="article-card cat-personal" data-title="Ways to Increase Focus and Mental Productivity">
+            <div class="article-meta">
+              <span class="article-category">Productivity</span>
+              <span>•</span>
+              <time datetime="2024-01-23">Jan 23, 2024</time>
+              <span>•</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="article-title"><a href="article.html?post=focus">Ways to Increase FOCUS in a Distracted World</a></h3>
+            <p class="article-excerpt">
+              Practical psychological techniques for deep engineering work: silence habits, natural daylight, doodling, and visual grounding.
+            </p>
+            <div class="article-footer">
+              <a href="article.html?post=focus" class="read-more-link">Read Article →</a>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Productivity</span>
+            </div>
+          </article>
+
+          <!-- Article 6: बाल दिवस (Poem) -->
+          <article class="article-card cat-personal" data-title="बाल दिवस Children Day Poem in Nepali 2053 BS">
+            <div class="article-meta">
+              <span class="article-category">Literary • नेपाली</span>
+              <span>•</span>
+              <time datetime="1996-09-14">२०५३ वि.सं</time>
+              <span>•</span>
+              <span>2 min read</span>
+            </div>
+            <h3 class="article-title"><a href="article.html?post=childrens-day">बाल दिवस — बाल अधिकार र यथार्थ</a></h3>
+            <p class="article-excerpt">
+              खोइ केहो बाल दिवस भनेको, जहाँ बालकहरुलाईे हेला हुन्छ । भन्छन बालक भविष्यका कर्णधार हुन्, तर त्यही बालक भइरहेछ होटलका नोकर...
+            </p>
+            <div class="article-footer">
+              <a href="article.html?post=childrens-day" class="read-more-link">कविता पढ्नुहोस् →</a>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Poetry</span>
+            </div>
+          </article>
+
+          <!-- Article 7: My Beloved Mother -->
+          <article class="article-card cat-personal" data-title="My Beloved Mother Inked in Memory of Late Mother">
+            <div class="article-meta">
+              <span class="article-category">Tribute & Memory</span>
+              <span>•</span>
+              <time datetime="1997-01-12">28 Poush 2053</time>
+              <span>•</span>
+              <span>2 min read</span>
+            </div>
+            <h3 class="article-title"><a href="article.html?post=beloved-mother">My Beloved Mother (In Memory of My Late Mother)</a></h3>
+            <p class="article-excerpt">
+              "O! My beloved mother, I love you more. You gave me birth, to look the world... Your beloved son is remembering you."
+            </p>
+            <div class="article-footer">
+              <a href="article.html?post=beloved-mother" class="read-more-link">Read Tribute →</a>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Memory</span>
+            </div>
+          </article>
+
+          <!-- Article 8: Unrealized Love -->
+          <article class="article-card cat-personal" data-title="UNREALIZED LOVE Short Story Reflection 2006">
+            <div class="article-meta">
+              <span class="article-category">Essay & Reflection</span>
+              <span>•</span>
+              <time datetime="2006-01-13">Jan 13, 2006</time>
+              <span>•</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="article-title"><a href="article.html?post=unrealized-love">UNREALIZED LOVE: Reflections on Perspective</a></h3>
+            <p class="article-excerpt">
+              "You don't value sunshine until you are in rain. When you realize, it's too late for an umbrella." A candid personal reflection on missed connections and youth.
+            </p>
+            <div class="article-footer">
+              <a href="article.html?post=unrealized-love" class="read-more-link">Read Essay →</a>
+              <span style="font-size:0.75rem;color:var(--text-muted);">Essay</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- External Blog Redirect Banner -->
+        <div style="margin-top:4rem;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2.5rem;text-align:center;">
+          <h3 style="font-size:1.4rem;margin-bottom:0.75rem;">Visit the Main WordPress Tech Blog</h3>
+          <p style="font-size:1rem;color:var(--text-secondary);max-width:640px;margin:0 auto 1.5rem auto;">
+            Looking for older archives, PowerShell snippets, and technical solutions? Browse over 70+ articles hosted on my dedicated WordPress blog.
+          </p>
+          <a href="https://blog.rajanmaharjan.com.np/" target="_blank" rel="noopener" class="btn btn-secondary">
+            Open blog.rajanmaharjan.com.np ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>Rajan Maharjan</strong>. All rights reserved.</div>
+        <div style="display:flex;gap:1.5rem;"><a href="index.html">Home</a><a href="projects.html">Portfolio</a><a href="tools.html">Tools</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/date-converter.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Blog Filtering & Search
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterTabs = document.querySelectorAll('#blogFilterTabs .filter-tab');
+      const articleCards = document.querySelectorAll('#blogGrid .article-card');
+      const searchInput = document.getElementById('blogSearchInput');
+
+      let currentFilter = '*';
+      let currentQuery = '';
+
+      function filterArticles() {
+        articleCards.forEach(card => {
+          const matchesCategory = currentFilter === '*' || card.classList.contains(currentFilter.replace('.', ''));
+          const title = card.getAttribute('data-title').toLowerCase();
+          const matchesQuery = currentQuery === '' || title.includes(currentQuery);
+
+          if (matchesCategory && matchesQuery) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentFilter = tab.getAttribute('data-filter');
+          filterArticles();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value.trim().toLowerCase();
+          filterArticles();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

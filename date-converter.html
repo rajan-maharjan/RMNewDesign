@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nepali Date Converter (Bikram Sambat BS ↔ English AD) & REST API — Rajan Maharjan</title>
+  <meta name="description" content="Free online Nepali date converter (Bikram Sambat BS to English AD and AD to BS) with public RESTful API documentation by Rajan Maharjan. Accurate conversion from 2000 BS to 2090 BS.">
+  <meta name="keywords" content="Nepali Date Converter, Bikram Sambat to AD, AD to BS, Nepali Calendar Converter, Nepali Date API, Rajan Maharjan, मिति रूपान्तरण">
+  <meta name="author" content="Rajan Maharjan">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rajanmaharjan.com.np/date-converter.html">
+  <meta property="og:title" content="Nepali Date Converter (BS ↔ AD) & REST API — Rajan Maharjan">
+  <meta property="og:description" content="Bidirectional date conversion between Bikram Sambat (BS) and English (AD) with public REST API.">
+  <meta property="og:image" content="assets/images/profile.jpg">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="site-brand">
+        <img src="assets/images/profile.jpg" alt="Rajan Maharjan" class="brand-avatar" onerror="this.src='assets/images/rajan-pp.jpg'">
+        <div class="brand-details">
+          <span class="brand-name">Rajan Maharjan</span>
+          <span class="brand-tagline">Digital Banking & Technology</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="expertise.html" class="nav-link">Expertise</a>
+        <a href="projects.html" class="nav-link">Portfolio</a>
+        <a href="photography.html" class="nav-link">Photography</a>
+        <a href="videos.html" class="nav-link">Videos</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="tools.html" class="nav-link active">Tools</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <a href="date-converter.html" class="date-pill-widget" title="Live Nepali & English Date" style="border-color:var(--color-primary);background:var(--color-primary-light);">
+          <span class="date-dot"></span>
+          <span id="liveDateTicker">Today • Nepali BS Calendar</span>
+        </a>
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="site-brand">
+        <img src="assets/images/profile.jpg" alt="Rajan Maharjan" class="brand-avatar" style="width:36px;height:36px;">
+        <span class="brand-name" style="font-size:1rem;">Rajan Maharjan</span>
+      </div>
+      <button type="button" class="mobile-drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li class="mobile-nav-item"><a href="index.html">Home</a></li>
+      <li class="mobile-nav-item"><a href="about.html">About Me</a></li>
+      <li class="mobile-nav-item"><a href="expertise.html">Expertise & Skills</a></li>
+      <li class="mobile-nav-item"><a href="projects.html">Portfolio & Works</a></li>
+      <li class="mobile-nav-item"><a href="photography.html">Photography (500px)</a></li>
+      <li class="mobile-nav-item"><a href="videos.html">YouTube Videos</a></li>
+      <li class="mobile-nav-item"><a href="blog.html">Blog & Insights</a></li>
+      <li class="mobile-nav-item"><a href="tools.html">Tools & Utilities</a></li>
+      <li class="mobile-nav-item"><a href="date-converter.html" class="active">Nepali Date Converter</a></li>
+      <li class="mobile-nav-item"><a href="contact.html">Contact</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <!-- Tool Header -->
+    <section class="section" style="padding-top:4.5rem;padding-bottom:2.5rem;background:radial-gradient(circle at 50% 0%, var(--color-primary-light) 0%, transparent 70%);">
+      <div class="container" style="max-width:960px;text-align:center;">
+        <span class="section-pill">Online Utility</span>
+        <h1 style="font-size:clamp(2.4rem, 5vw, 3.8rem);margin-bottom:1.25rem;">
+          Nepali Date Converter (BS ↔ AD)
+        </h1>
+        <p style="font-size:1.2rem;color:var(--text-secondary);line-height:1.7;">
+          Convert dates accurately between <strong>Nepali Bikram Sambat (वि.सं)</strong> and <strong>English Gregorian (A.D.)</strong> with instant client-side calculation and developer RESTful API endpoints.
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Converter Card -->
+    <section class="section" style="padding-top:1rem;padding-bottom:3.5rem;">
+      <div class="container">
+        <div class="converter-card">
+          <!-- Mode Toggle Radios -->
+          <div class="converter-type-selector">
+            <label class="converter-radio-label">
+              <input type="radio" name="conversionMode" value="e2n" checked>
+              <span>Convert English (A.D.) → Nepali (B.S.)</span>
+            </label>
+            <label class="converter-radio-label">
+              <input type="radio" name="conversionMode" value="n2e">
+              <span>Convert Nepali (B.S.) → English (A.D.)</span>
+            </label>
+          </div>
+
+          <!-- Converter Form -->
+          <form id="dateConverterForm">
+            <div class="converter-form-grid">
+              <!-- Day Input -->
+              <div class="form-group">
+                <label class="form-label" for="dateDay">Day (DD)</label>
+                <input type="number" id="dateDay" class="form-control" min="1" max="32" value="12" required>
+              </div>
+
+              <!-- Month Select -->
+              <div class="form-group">
+                <label class="form-label" for="dateMonth" id="monthLabel">Month</label>
+                <!-- English Month Select (default for e2n) -->
+                <select id="englishMonthSelect" class="form-control">
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
+                  <option value="4">April</option>
+                  <option value="5">May</option>
+                  <option value="6">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10" selected>October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+
+                <!-- Nepali Month Select (shown for n2e) -->
+                <select id="nepaliMonthSelect" class="form-control" style="display:none;">
+                  <option value="1">बैशाख (Baisakh)</option>
+                  <option value="2">जेष्ठ (Jestha)</option>
+                  <option value="3">आषाढ (Ashadh)</option>
+                  <option value="4">श्रावन (Shrawan)</option>
+                  <option value="5">भाद्र (Bhadra)</option>
+                  <option value="6" selected>असोज (Aswin)</option>
+                  <option value="7">कार्तिक (Kartik)</option>
+                  <option value="8">मंसिर (Mangsir)</option>
+                  <option value="9">पौष (Poush)</option>
+                  <option value="10">माघ (Magh)</option>
+                  <option value="11">फागुन (Falgun)</option>
+                  <option value="12">चैत्र (Chaitra)</option>
+                </select>
+              </div>
+
+              <!-- Year Input -->
+              <div class="form-group">
+                <label class="form-label" for="dateYear" id="yearLabel">Year (YYYY)</label>
+                <input type="number" id="dateYear" class="form-control" min="1944" max="2090" value="2026" required>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+              <button type="submit" class="btn btn-primary">
+                Convert Date Now
+              </button>
+              <button type="button" class="btn btn-secondary" id="setTodayBtn">
+                Set to Today's Date
+              </button>
+            </div>
+          </form>
+
+          <!-- Result Display -->
+          <div class="converter-result-box" id="resultContainer">
+            <div class="result-heading" id="resultHeading">Converted Nepali Bikram Sambat Date</div>
+            <div class="result-main" id="resultMain">२६ असोज, २०८३ (सोमबार)</div>
+            <div class="result-secondary" id="resultSecondary">Input: 12 October 2026, Monday</div>
+            <div style="margin-top:1.25rem;">
+              <button type="button" class="btn btn-secondary btn-sm" id="copyResultBtn">
+                📋 Copy Result
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Public REST API Documentation -->
+    <section class="section" id="api-documentation" style="background:var(--bg-surface-subtle);padding-top:3.5rem;">
+      <div class="container" style="max-width:960px;">
+        <div class="section-header">
+          <span class="section-pill">Developer Integration</span>
+          <h2 class="section-title">Nepali Date REST API Documentation</h2>
+          <p class="section-description">
+            Easily embed dynamic Nepali dates or convert calendars on your website or mobile application using Rajan Maharjan's public RESTful endpoints.
+          </p>
+        </div>
+
+        <div class="api-docs-box">
+          <h3 style="font-size:1.35rem;margin-bottom:1rem;color:var(--text-main);">1. Available REST Endpoints</h3>
+          <p style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:1.25rem;">
+            Both raw string outputs and structured JSON payloads are supported:
+          </p>
+
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;">
+            <!-- Endpoint A -->
+            <div style="background:var(--bg-surface);padding:1.25rem;border-radius:var(--radius-md);border:1px solid var(--border-subtle);">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;">
+                <span style="background:#10b981;color:#fff;font-size:0.75rem;font-weight:700;padding:0.2rem 0.5rem;border-radius:4px;">GET</span>
+                <code style="font-family:var(--font-mono);font-size:0.925rem;font-weight:600;">https://rajanmaharjan.com.np/getdate/</code>
+              </div>
+              <p style="font-size:0.875rem;color:var(--text-secondary);margin:0;">
+                Returns today's Nepali Date as formatted HTML/string (e.g., <strong>वि.सं २०८३ असोज २६, सोमबार</strong>).
+              </p>
+            </div>
+
+            <!-- Endpoint B -->
+            <div style="background:var(--bg-surface);padding:1.25rem;border-radius:var(--radius-md);border:1px solid var(--border-subtle);">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;">
+                <span style="background:#2563eb;color:#fff;font-size:0.75rem;font-weight:700;padding:0.2rem 0.5rem;border-radius:4px;">GET (JSON)</span>
+                <code style="font-family:var(--font-mono);font-size:0.925rem;font-weight:600;">https://rajanmaharjan.com.np/getdate/get-json.php?dateType=np</code>
+              </div>
+              <p style="font-size:0.875rem;color:var(--text-secondary);margin:0;">
+                Returns structured JSON containing Nepali year, month, date, and day of week.
+              </p>
+            </div>
+
+            <!-- Endpoint C -->
+            <div style="background:var(--bg-surface);padding:1.25rem;border-radius:var(--radius-md);border:1px solid var(--border-subtle);">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;">
+                <span style="background:#2563eb;color:#fff;font-size:0.75rem;font-weight:700;padding:0.2rem 0.5rem;border-radius:4px;">GET (Convert)</span>
+                <code style="font-family:var(--font-mono);font-size:0.925rem;font-weight:600;">https://rajanmaharjan.com.np/getdate/get-json.php?dateType=e2n&amp;date=12-10-2026</code>
+              </div>
+              <p style="font-size:0.875rem;color:var(--text-secondary);margin:0;">
+                Converts English date (DD-MM-YYYY) to Nepali BS date in JSON format.
+              </p>
+            </div>
+          </div>
+
+          <h3 style="font-size:1.35rem;margin-bottom:1rem;color:var(--text-main);">2. Allowed Query Parameters</h3>
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.925rem;text-align:left;">
+              <thead>
+                <tr style="border-bottom:2px solid var(--border-strong);">
+                  <th style="padding:0.6rem;">Parameter</th>
+                  <th style="padding:0.6rem;">Allowed Values</th>
+                  <th style="padding:0.6rem;">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border-subtle);">
+                  <td style="padding:0.6rem;font-weight:600;"><code>dateType</code></td>
+                  <td style="padding:0.6rem;"><code>np</code>, <code>en</code>, <code>e2n</code>, <code>n2e</code></td>
+                  <td style="padding:0.6rem;">Specifies output language or conversion mode.</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle);">
+                  <td style="padding:0.6rem;font-weight:600;"><code>dformat</code></td>
+                  <td style="padding:0.6rem;"><code>yyyy</code>, <code>mon</code>, <code>dd</code>, <code>day</code>, <code>adbs</code></td>
+                  <td style="padding:0.6rem;">Isolates a single date component (e.g. year only, month only).</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-subtle);">
+                  <td style="padding:0.6rem;font-weight:600;"><code>date</code></td>
+                  <td style="padding:0.6rem;"><code>DD-MM-YYYY</code> format</td>
+                  <td style="padding:0.6rem;">Required for <code>e2n</code> and <code>n2e</code> conversions.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Live API Sandbox Tester -->
+          <div style="margin-top:2.5rem;padding:1.5rem;background:var(--bg-surface);border-radius:var(--radius-lg);border:1px solid var(--border-subtle);">
+            <h4 style="margin-bottom:0.75rem;">Interactive API Sandbox Tester</h4>
+            <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:1rem;">
+              Test the JSON engine directly in your browser:
+            </p>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:1rem;">
+              <button type="button" class="btn btn-secondary btn-sm" id="testApiNp">Fetch Today (Nepali)</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="testApiEn">Fetch Today (English)</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="testApiConvert">Convert 12-10-2026 (e2n)</button>
+            </div>
+            <pre class="code-snippet" id="apiSandboxResponse" style="margin:0;"><code style="font-family:var(--font-mono);">// Click a button above to test API response payload...</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>Rajan Maharjan</strong>. All rights reserved.</div>
+        <div style="display:flex;gap:1.5rem;"><a href="index.html">Home</a><a href="tools.html">Tools</a><a href="projects.html">Portfolio</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/date-converter.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Converter Form Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const modeRadios = document.querySelectorAll('input[name="conversionMode"]');
+      const dateDay = document.getElementById('dateDay');
+      const dateYear = document.getElementById('dateYear');
+      const englishMonthSelect = document.getElementById('englishMonthSelect');
+      const nepaliMonthSelect = document.getElementById('nepaliMonthSelect');
+      const monthLabel = document.getElementById('monthLabel');
+      const yearLabel = document.getElementById('yearLabel');
+      const converterForm = document.getElementById('dateConverterForm');
+      const setTodayBtn = document.getElementById('setTodayBtn');
+
+      const resultHeading = document.getElementById('resultHeading');
+      const resultMain = document.getElementById('resultMain');
+      const resultSecondary = document.getElementById('resultSecondary');
+      const copyResultBtn = document.getElementById('copyResultBtn');
+
+      let currentMode = 'e2n'; // 'e2n' or 'n2e'
+
+      function updateModeUI() {
+        if (currentMode === 'e2n') {
+          englishMonthSelect.style.display = 'block';
+          nepaliMonthSelect.style.display = 'none';
+          monthLabel.textContent = 'English Month (AD)';
+          yearLabel.textContent = 'English Year (A.D. 1944–2033)';
+          resultHeading.textContent = 'Converted Nepali Bikram Sambat Date';
+        } else {
+          englishMonthSelect.style.display = 'none';
+          nepaliMonthSelect.style.display = 'block';
+          monthLabel.textContent = 'Nepali Month (BS)';
+          yearLabel.textContent = 'Nepali Year (B.S. 2000–2090)';
+          resultHeading.textContent = 'Converted English Gregorian Date';
+        }
+      }
+
+      modeRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          currentMode = e.target.value;
+          updateModeUI();
+          doConversion();
+        });
+      });
+
+      function doConversion() {
+        const d = parseInt(dateDay.value, 10);
+        const y = parseInt(dateYear.value, 10);
+
+        if (isNaN(d) || isNaN(y)) return;
+
+        if (currentMode === 'e2n') {
+          const m = parseInt(englishMonthSelect.value, 10);
+          const res = window.NepaliCalendar.engToNep(y, m, d);
+          if (res) {
+            resultMain.textContent = `${res.nepaliDateNum} ${res.nmonth}, ${res.nepaliYearNum} (${res.day})`;
+            resultSecondary.textContent = `Input: ${d} ${window.NepaliCalendar.englishMonths[m - 1]} ${y}, ${res.eday}`;
+          } else {
+            resultMain.textContent = 'Date out of supported range (1944–2033 AD)';
+            resultSecondary.textContent = '';
+          }
+        } else {
+          const m = parseInt(nepaliMonthSelect.value, 10);
+          const res = window.NepaliCalendar.nepToEng(y, m, d);
+          if (res) {
+            resultMain.textContent = `${res.date} ${res.emonth} ${res.year}, ${res.day}`;
+            resultSecondary.textContent = `Input: ${window.NepaliCalendar.toNepaliNumerals(d)} ${window.NepaliCalendar.nepaliMonths[m - 1]} ${window.NepaliCalendar.toNepaliNumerals(y)} (${res.nday})`;
+          } else {
+            resultMain.textContent = 'Date out of supported range (2000–2090 BS)';
+            resultSecondary.textContent = '';
+          }
+        }
+      }
+
+      converterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        doConversion();
+      });
+
+      setTodayBtn.addEventListener('click', () => {
+        const today = window.NepaliCalendar.getToday();
+        if (currentMode === 'e2n') {
+          dateDay.value = today.ad.date;
+          englishMonthSelect.value = today.ad.month;
+          dateYear.value = today.ad.year;
+        } else {
+          if (today.bs) {
+            dateDay.value = today.bs.date;
+            nepaliMonthSelect.value = today.bs.month;
+            dateYear.value = today.bs.year;
+          }
+        }
+        doConversion();
+      });
+
+      if (copyResultBtn) {
+        copyResultBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(resultMain.textContent).then(() => {
+            const original = copyResultBtn.textContent;
+            copyResultBtn.textContent = '✓ Copied!';
+            setTimeout(() => { copyResultBtn.textContent = original; }, 2000);
+          });
+        });
+      }
+
+      // Initial conversion
+      doConversion();
+
+      // API Sandbox Simulation
+      const sandboxResponse = document.getElementById('apiSandboxResponse');
+      document.getElementById('testApiNp').addEventListener('click', () => {
+        const today = window.NepaliCalendar.getToday();
+        const payload = {
+          status: "success",
+          dateType: "np",
+          year: today.bs ? today.bs.year : 2083,
+          nepaliYear: today.bs ? today.bs.nepaliYearNum : "२०८३",
+          month: today.bs ? today.bs.month : 6,
+          monthName: today.bs ? today.bs.nmonth : "असोज",
+          date: today.bs ? today.bs.date : 26,
+          nepaliDate: today.bs ? today.bs.nepaliDateNum : "२६",
+          dayOfWeek: today.bs ? today.bs.day : "सोमबार",
+          formatted: today.bs ? today.bs.formattedNepali : "२६ असोज, २०८३ (सोमबार)"
+        };
+        sandboxResponse.querySelector('code').textContent = JSON.stringify(payload, null, 2);
+      });
+
+      document.getElementById('testApiEn').addEventListener('click', () => {
+        const today = window.NepaliCalendar.getToday();
+        const payload = {
+          status: "success",
+          dateType: "en",
+          year: today.ad.year,
+          month: today.ad.month,
+          monthName: today.ad.monthName,
+          date: today.ad.date,
+          dayOfWeek: today.ad.dayName,
+          formatted: today.ad.formatted
+        };
+        sandboxResponse.querySelector('code').textContent = JSON.stringify(payload, null, 2);
+      });
+
+      document.getElementById('testApiConvert').addEventListener('click', () => {
+        const res = window.NepaliCalendar.engToNep(2026, 10, 12);
+        const payload = {
+          status: "success",
+          query: { dateType: "e2n", date: "12-10-2026" },
+          result: {
+            bs_year: res.year,
+            bs_year_nepali: res.nepaliYearNum,
+            bs_month: res.month,
+            bs_month_name: res.nmonth,
+            bs_date: res.date,
+            bs_date_nepali: res.nepaliDateNum,
+            day: res.day,
+            formatted: res.formattedNepali
+          }
+        };
+        sandboxResponse.querySelector('code').textContent = JSON.stringify(payload, null, 2);
+      });
+    });
+  </script>
+</body>
+</html>
