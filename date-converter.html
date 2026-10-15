@@ -131,7 +131,7 @@
               <!-- Day Input -->
               <div class="form-group">
                 <label class="form-label" for="dateDay">Day (DD)</label>
-                <input type="number" id="dateDay" class="form-control" min="1" max="32" value="12" required>
+                <input type="number" id="dateDay" class="form-control" min="1" max="32" required>
               </div>
 
               <!-- Month Select -->
@@ -148,7 +148,7 @@
                   <option value="7">July</option>
                   <option value="8">August</option>
                   <option value="9">September</option>
-                  <option value="10" selected>October</option>
+                  <option value="10">October</option>
                   <option value="11">November</option>
                   <option value="12">December</option>
                 </select>
@@ -160,7 +160,7 @@
                   <option value="3">आषाढ (Ashadh)</option>
                   <option value="4">श्रावन (Shrawan)</option>
                   <option value="5">भाद्र (Bhadra)</option>
-                  <option value="6" selected>असोज (Aswin)</option>
+                  <option value="6">असोज (Aswin)</option>
                   <option value="7">कार्तिक (Kartik)</option>
                   <option value="8">मंसिर (Mangsir)</option>
                   <option value="9">पौष (Poush)</option>
@@ -173,7 +173,7 @@
               <!-- Year Input -->
               <div class="form-group">
                 <label class="form-label" for="dateYear" id="yearLabel">Year (YYYY)</label>
-                <input type="number" id="dateYear" class="form-control" min="1944" max="2090" value="2026" required>
+                <input type="number" id="dateYear" class="form-control" min="1944" max="2090" required>
               </div>
             </div>
 
@@ -419,6 +419,12 @@
           });
         });
       }
+
+      // Default to today's English date when the converter loads.
+      const today = window.NepaliCalendar.getToday();
+      dateDay.value = today.ad.date;
+      englishMonthSelect.value = today.ad.month;
+      dateYear.value = today.ad.year;
 
       // Initial conversion
       doConversion();
