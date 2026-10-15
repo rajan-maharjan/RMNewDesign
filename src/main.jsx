@@ -288,16 +288,32 @@ function DateConverterPage() {
 
 function ContactPage() {
   const [status, setStatus] = useState('');
-  function submit(event) {
+  const [isSending, setIsSending] = useState(false);
+  async function submit(event) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(`Website message from ${form.get('name')}`);
-    const body = encodeURIComponent(`${form.get('message')}\n\nFrom: ${form.get('name')}\nEmail: ${form.get('email')}`);
-    setStatus('Your email app is opening with your message. If it does not open, connect with me through LinkedIn.');
-    window.location.href = `mailto:mail@rajanmaharjan.com.np?subject=${subject}&body=${body}`;
-    event.currentTarget.reset();
+    const formElement = event.currentTarget;
+    setIsSending(true);
+    setStatus('');
+    try {
+      const response = await fetch('send-mail.php', {
+        method: 'POST',
+        body: new FormData(formElement),
+        headers: { Accept: 'application/json' }
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Your message could not be sent.');
+      }
+      formElement.reset();
+      setStatus('Your message has been submitted. Thank you for reaching out.');
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setStatus('Your message could not be sent. Please try again or email mail@rajanmaharjan.com.np directly.');
+    } finally {
+      setIsSending(false);
+    }
   }
-  return <main id="top"><PageIntro eyebrow="Contact" title="Let's start a conversation" text="Have a question, collaboration idea, or simply want to connect? I’d be happy to hear from you." /><section className="section"><div className="container contact-grid"><div className="contact-copy"><h2>Connect directly</h2><p>Reach out about digital banking, enterprise technology, photography, or community work.</p><a className="contact-detail" href="mailto:mail@rajanmaharjan.com.np">✉ <span>mail@rajanmaharjan.com.np</span></a><p className="contact-detail">⌖ <span>Kathmandu, Nepal</span></p><div className="contact-socials"><a className="contact-social-btn" href="https://linkedin.com/in/rajanmaharjan" target="_blank" rel="noreferrer">LinkedIn ↗</a><a className="contact-social-btn" href="https://youtube.com/@RajanMaharjan" target="_blank" rel="noreferrer">YouTube ↗</a><a className="contact-social-btn" href="https://500px.com/p/rajan_maharjan" target="_blank" rel="noreferrer">500px ↗</a></div></div><form className="card contact-form" onSubmit={submit}><div className="form-group"><label className="form-label" htmlFor="contact-name">Name</label><input className="form-control" id="contact-name" name="name" autoComplete="name" required /></div><div className="form-group"><label className="form-label" htmlFor="contact-email">Email</label><input className="form-control" id="contact-email" type="email" name="email" autoComplete="email" required /></div><div className="form-group"><label className="form-label" htmlFor="contact-message">Message</label><textarea className="form-control" id="contact-message" name="message" rows="5" required /></div><button className="btn btn-primary" type="submit">Prepare email →</button>{status && <p className="form-status" role="status">{status}</p>}</form></div></section></main>;
+  return <main id="top"><PageIntro eyebrow="Contact" title="Let's start a conversation" text="Have a question, collaboration idea, or simply want to connect? I’d be happy to hear from you." /><section className="section"><div className="container contact-grid"><div className="contact-copy"><h2>Connect directly</h2><p>Reach out about digital banking, enterprise technology, photography, or community work.</p><a className="contact-detail" href="mailto:mail@rajanmaharjan.com.np">✉ <span>mail@rajanmaharjan.com.np</span></a><p className="contact-detail">⌖ <span>Kathmandu, Nepal</span></p><div className="contact-socials"><a className="contact-social-btn" href="https://linkedin.com/in/rajanmaharjan" target="_blank" rel="noreferrer">LinkedIn ↗</a><a className="contact-social-btn" href="https://youtube.com/@RajanMaharjan" target="_blank" rel="noreferrer">YouTube ↗</a><a className="contact-social-btn" href="https://500px.com/p/rajan_maharjan" target="_blank" rel="noreferrer">500px ↗</a></div></div><form className="card contact-form" action="send-mail.php" method="post" onSubmit={submit}><div className="form-group"><label className="form-label" htmlFor="contact-name">Name</label><input className="form-control" id="contact-name" name="name" autoComplete="name" required /></div><div className="form-group"><label className="form-label" htmlFor="contact-email">Email</label><input className="form-control" id="contact-email" type="email" name="email" autoComplete="email" required /></div><div className="form-group"><label className="form-label" htmlFor="contact-message">Message</label><textarea className="form-control" id="contact-message" name="message" rows="5" required /></div><button className="btn btn-primary" type="submit" disabled={isSending}>{isSending ? 'Sending...' : 'Send message →'}</button>{status && <p className="form-status" role="status">{status}</p>}</form></div></section></main>;
 }
 
 function App() {

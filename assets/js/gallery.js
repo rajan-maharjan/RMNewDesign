@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxTitle = document.getElementById('lightboxTitle');
   const lightboxLocation = document.getElementById('lightboxLocation');
   const lightboxExif = document.getElementById('lightboxExif');
-  const lightbox500px = document.getElementById('lightbox500px');
+  const lightboxPhotoLink = document.getElementById('lightboxPhotoLink');
   const closeBtn = document.querySelector('.lightbox-close');
   const prevBtn = document.querySelector('.lightbox-prev');
   const nextBtn = document.querySelector('.lightbox-next');
@@ -63,14 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = targetItem.getAttribute('data-title') || 'Photograph by Rajan Maharjan';
     const location = targetItem.getAttribute('data-location') || 'Nepal';
     const camera = targetItem.getAttribute('data-camera') || 'Mobile Photography';
-    const link500px = targetItem.getAttribute('data-500px') || 'https://500px.com/p/rajan_maharjan';
+    const photoLink = targetItem.getAttribute('data-photo-link') || 'https://500px.com/p/rajan_maharjan';
+    const photoLinkLabel = targetItem.getAttribute('data-photo-link-label') || 'View on 500px ↗';
 
     lightboxImg.src = fullSrc;
     lightboxImg.alt = title;
     if (lightboxTitle) lightboxTitle.textContent = title;
     if (lightboxLocation) lightboxLocation.textContent = location;
     if (lightboxExif) lightboxExif.textContent = camera;
-    if (lightbox500px) lightbox500px.href = link500px;
+    if (lightboxPhotoLink) {
+      lightboxPhotoLink.href = photoLink;
+      lightboxPhotoLink.textContent = photoLinkLabel;
+    }
 
     lightboxModal.classList.add('active');
     document.body.style.overflow = 'hidden';

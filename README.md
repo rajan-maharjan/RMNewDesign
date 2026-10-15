@@ -9,6 +9,7 @@ A responsive personal portfolio for Rajan Maharjan, based on the supplied design
 - Responsive navigation, persistent light/dark theme, and bilingual live date pill.
 - Portfolio browsing, category filters, photography lightbox, and blog search.
 - Bidirectional Nepali Bikram Sambat (BS) ↔ Gregorian (AD) date converter.
+- Contact form email notifications through the Apache/PHP mail handler.
 - Local date API examples that use the converter engine without pretending to call a server.
 - Existing PHP integration and REST endpoint guidance remains in [PHP_INTEGRATION_GUIDE.md](./PHP_INTEGRATION_GUIDE.md).
 
@@ -21,6 +22,8 @@ http://localhost/rajan-maharjan-redesign/index.html
 ```
 
 The HTML entry loads its relative CSS, images, and browser scripts directly. Existing pages such as `about.html`, `projects.html`, and `date-converter.html` remain standalone HTML too.
+
+The contact form submits through `send-mail.php`, so Apache must have PHP enabled and its mail transport configured for email notifications to work.
 
 ## Run the React app (optional)
 
@@ -41,6 +44,8 @@ npm run preview
 ```
 
 Deploy the contents of `dist/` to an Apache document root for the built React version. The build emits files for preserved `.html` page URLs. Deploying the production build into the existing PHP site should be coordinated with its `.htaccess` rules and the routing guidance in `PHP_INTEGRATION_GUIDE.md`.
+
+The build also includes `send-mail.php`; deploy it to the same Apache document root as the built pages. PHP and a working server mail transport are required for contact form submissions.
 
 The existing PHP date REST API remains a separate server-side integration; the converter UI and sandbox examples work locally in the browser.
 

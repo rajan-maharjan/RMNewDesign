@@ -29,6 +29,7 @@ export default defineConfig({
       name: 'copy-original-static-assets',
       closeBundle() {
         cpSync(resolve('assets'), resolve('dist/assets'), { recursive: true });
+        cpSync(resolve('send-mail.php'), resolve('dist/send-mail.php'));
       }
     },
     {

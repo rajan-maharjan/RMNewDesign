@@ -172,9 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   const contactForm = document.getElementById('mainContactForm');
   const formSuccessAlert = document.getElementById('formSuccessAlert');
+  const formErrorAlert = document.getElementById('formErrorAlert');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const nameInput = document.getElementById('contactName');
@@ -184,9 +185,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Honeypot spam check
       if (honeypot && honeypot.value.trim() !== '') {
-        console.warn('Spam submission suppressed.');
+        if (formErrorAlert) formErrorAlert.style.display = 'block';
         return;
       }
+
+      if (formSuccessAlert) formSuccessAlert.style.display = 'none';
+      if (formErrorAlert) formErrorAlert.style.display = 'none';
 
       let isValid = true;
 
@@ -215,23 +219,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (isValid) {
         const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalButtonContent = submitBtn ? submitBtn.innerHTML : '';
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.innerHTML = 'Sending...';
+          submitBtn.textContent = 'Sending...';
         }
 
-        // Simulate secure sending response (can easily wire to send-mail.php)
-        setTimeout(() => {
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { Accept: 'application/json' }
+          });
+          const result = await response.json();
+
+          if (!response.ok || !result.success) {
+            throw new Error(result.message || 'The message could not be sent.');
+          }
+
           if (formSuccessAlert) {
             formSuccessAlert.style.display = 'block';
             formSuccessAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
           contactForm.reset();
+        } catch (error) {
+          console.error('Contact form submission failed:', error);
+          if (formErrorAlert) {
+            formErrorAlert.style.display = 'block';
+            formErrorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } finally {
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Send Message';
+            submitBtn.innerHTML = originalButtonContent;
           }
-        }, 800);
+        }
       }
     });
 
